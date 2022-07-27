@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+}
+
+.header {
+  display: block;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  position: sticky;
+  width: 90%;
+  color: white;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.bodyContent {
+  /*contains both cover and text content underneath*/
+  height: auto;
+  width: 100%;
+}
+
+.logo {
+  background: url("images/logo.png") no-repeat;
+  background-position: fixed;
+  background-size: contain;
+  width: 250px;
+  height: 250px;
+}
+
+.cover {
+  display: flex;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("images/sashimi.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: absolute;
+  background-position: center;
+  min-height: 600px;
+  width: 100%;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-direction: column;
+}
+
+.textContent {
+  color: white;
+  display: grid;
+  width: 100%;
+  max-height: 500px;
+  background-color: rgb(15, 15, 15);
+  padding: 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); */
+  box-sizing: border-box;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.review {
+  width: 80%;
+  height: 30vh;
+}
+
+.reviewImageLeft,
+.reviewImageRight {
+  gap: 5px;
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: 1fr 1fr;
+}
+
+.reviewImageLeft img,
+.reviewImageRight img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+#reverseGordon {
+  transform: scaleX(-1);
+}
+
+/* ---------------------------Menu-------------------------------------*/
+
+.menuBackground {
+  display: flex;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("images/menuWallpaper.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.menuContainer {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  background: linear-gradient(rgba(0, 0, 0, 0.93), rgba(0, 0, 0, 0.93));
+  width: 50%;
+  margin: 0 auto;
+  height: 1000px;
+}
+
+.menuBlock {
+  top: 10%;
+  color: white;
+  row-gap: 500px;
+  column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr;
+  justify-content: center;
+  align-items: flex-end;
+  width: 95%;
+  position: relative;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.menuBlock img {
+  position: absolute;
+  background-position: center;
+  object-fit: cover;
+  float: right;
+  right: 0;
+  height: 90%;
+  width: 20%;
+}
+
+/* ---------------------------Contact-------------------------------------*/
+
+.contactBackground {
+  display: flex;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("images/contactWallpaper.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 1000px;
+  width: 100%;
+}
+
+.contactContainer {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  background: linear-gradient(rgba(0, 0, 0, 0.93), rgba(0, 0, 0, 0.93));
+  width: 50%;
+  right: 0;
+  height: 1000px;
+}
+
+.contactHours {
+}
