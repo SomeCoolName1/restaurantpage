@@ -6,13 +6,13 @@ function loadContact() {
 }
 
 function createContact() {
-  const contactBackground = document.createElement("contactBackground");
-  contactBackground.classList = "contactBackground";
+  const container = document.createElement("container");
+  container.classList = "container";
 
   const contactContainer = document.createElement("contactContainer");
   contactContainer.classList = "contactContainer";
   contactContainer.textContent = "Contact Us!";
-  contactBackground.appendChild(contactContainer);
+  container.appendChild(contactContainer);
 
   /*---------contact Hours---------*/
 
@@ -23,19 +23,19 @@ function createContact() {
   const hoursList = document.createElement("li");
 
   contactHours.appendChild(hoursList);
-  const monday = createHoursList("Monday: 00:01 ~ 24:59");
+  const monday = createHoursList("Monday: 00:01 ~ 23:59");
   hoursList.appendChild(monday);
-  const tuesday = createHoursList("Tuesday: 00:01 ~ 24:59");
+  const tuesday = createHoursList("Tuesday: 00:01 ~ 23:59");
   hoursList.appendChild(tuesday);
   const wednesday = createHoursList("Wednesday: Closed");
   hoursList.appendChild(wednesday);
-  const thursday = createHoursList("Thursday: 00:01 ~ 24:59");
+  const thursday = createHoursList("Thursday: 00:01 ~ 23:59");
   hoursList.appendChild(thursday);
-  const friday = createHoursList("Friday: 00:01 ~ 24:59");
+  const friday = createHoursList("Friday: 00:01 ~ 23:59");
   hoursList.appendChild(friday);
-  const saturday = createHoursList("Saturday: 00:01 ~ 24:59");
+  const saturday = createHoursList("Saturday: 00:01 ~ 23:59");
   hoursList.appendChild(saturday);
-  const sunday = createHoursList("Sunday: 00:01 ~ 24:59");
+  const sunday = createHoursList("Sunday: 00:01 ~ 23:59");
   hoursList.appendChild(sunday);
 
   contactHours.appendChild(hoursList);
@@ -49,22 +49,25 @@ function createContact() {
 
   const manager = createIcons(
     "Manager: Rordon Gamsay",
-    "NitchenKightmares@email.com",
-    "99 9999 9999",
+    "Email: NitchenKightmares@email.com",
+    "Phone: 99 9999 9999",
     "images/gordon.jpg"
   );
 
   const headChef = createIcons(
     "Head Chef: Gurios Ceorge",
-    "GuriousCeorge@email.com",
-    "88 8888 8889",
+    "Email: GuriousCeorge@email.com",
+    "Phone: 88 8888 8889",
     "images/George.jpg"
   );
 
   contactDetails.appendChild(manager);
   contactDetails.appendChild(headChef);
 
-  return contactBackground;
+  const contactBackground = document.createElement("contactBackground");
+  contactBackground.classList = "contactBackground";
+  container.appendChild(contactBackground);
+  return container;
 }
 
 function createHoursList(hours) {

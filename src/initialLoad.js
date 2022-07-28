@@ -1,21 +1,29 @@
 import loadMenu from "./menu";
 import loadContact from "./contact";
+import loadHome from "./home";
 
 function createHeader() {
   const header = document.createElement("header");
   header.classList.add("header");
 
   const homeBtn = createButton("home", "home");
+  homeBtn.addEventListener("click", () => {
+    activeButton(home), loadHome();
+  });
 
   const menuBtn = createButton("menu", "menu");
-  menuBtn.addEventListener("click", loadMenu);
+  menuBtn.addEventListener("click", () => {
+    activeButton(menu), loadMenu();
+  });
 
   const contactBtn = createButton("contact", "contact");
-  contactBtn.addEventListener("click", loadContact);
+  contactBtn.addEventListener("click", () => {
+    activeButton(contact), loadContact();
+  });
 
-  header.appendChild(homeBtn);
-  header.appendChild(menuBtn);
   header.appendChild(contactBtn);
+  header.appendChild(menuBtn);
+  header.appendChild(homeBtn);
 
   return header;
 }
@@ -30,6 +38,13 @@ function createButton(id, text) {
 
   btn.appendChild(span);
   return btn;
+}
+
+function activeButton(buttonID) {
+  home.classList.remove("active");
+  menu.classList.remove("active");
+  contact.classList.remove("active");
+  buttonID.classList.add("active");
 }
 
 function createBodyContent() {
@@ -95,36 +110,12 @@ function createReviewImages(id, src) {
   return image;
 }
 
-function loadHome() {
+function initialLoad() {
   console.log("loadHome test");
   const contentDiv = document.getElementById("content");
   contentDiv.appendChild(createHeader());
+  home.classList.add("active");
   contentDiv.appendChild(createBodyContent());
 }
 
-export default loadHome;
-
-// ////ReviewImage Left
-// const reviewImageLeft = document.createElement("reviewImage");
-
-// const concernedImage = createReviewImages("concerned", "images/gordon.jpg");
-// const sonicImage = createReviewImages("Sonic", "images/sonic.jpg");
-
-// reviewImageLeft.appendChild(concernedImage);
-// reviewImageLeft.appendChild(sonicImage);
-// reviewImageLeft.classList = "reviewImageLeft";
-// textContent.appendChild(reviewImageLeft);
-
-// //ReviewImage Right
-
-// const reviewImageRight = document.createElement("reviewImage");
-// reviewImageRight.classList = "reviewImageRight";
-// const crocs = createReviewImages("Crocs", "images/crocks.jpg");
-// const concernedFlip = createReviewImages(
-//   "reverseGordon",
-//   "images/gordon.jpg"
-// );
-
-// reviewImageRight.appendChild(crocs);
-// reviewImageRight.appendChild(concernedFlip);
-// textContent.appendChild(reviewImageRight);
+export default initialLoad;

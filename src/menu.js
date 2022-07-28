@@ -7,38 +7,47 @@ function loadMenu() {
 }
 
 function createMenu() {
+  const outerContainer = document.createElement("outerContainer");
+  outerContainer.classList = "outerContainer";
+
   const menuBackground = document.createElement("menuBackground");
   menuBackground.classList = "menuBackground";
+  outerContainer.appendChild(menuBackground);
 
   const menuContainer = document.createElement("menuContainer");
   menuContainer.classList = "menuContainer";
-  menuBackground.appendChild(menuContainer);
+  outerContainer.appendChild(menuContainer);
+
+  const menuHeader = document.createElement("h1");
+  menuHeader.classList = "menuHeader";
+  menuHeader.textContent = "A Delicious Menu";
+  menuBackground.appendChild(menuHeader);
 
   //name, text, price, image
   const foodRice = menuDescription(
     "Single Grain of Rice",
-    "Hand-picked rice from our farmers off the streets!",
+    "Hand-picked rice from our farmers off the streets.",
     "$5.90",
     "images/rice.jpg"
   );
 
   const foodEgg = menuDescription(
     "Raw Egg",
-    "Cracked freshly open from your fridge to be cooked by your imagination!",
+    "Cracked freshly open from your fridge to be cooked by your imagination.",
     "One Egg",
     "images/rawEgg.jpg"
   );
 
   const foodCurry = menuDescription(
     "Japanese-style Curry",
-    "Store bought from a competitor restaurant!",
+    "Store bought from a competitor restaurant.",
     "$13.99",
     "images/curry.jpg"
   );
 
   const foodBrownies = menuDescription(
     "Brownies",
-    "Don't let the image confuse you! They taste like the real thing!",
+    "Don't let the image confuse you. They taste like the real thing.",
     "$2.92",
     "images/brownies.jpeg"
   );
@@ -48,7 +57,7 @@ function createMenu() {
   menuContainer.appendChild(foodCurry);
   menuContainer.appendChild(foodBrownies);
 
-  return menuBackground;
+  return outerContainer;
 }
 
 function menuDescription(name, text, price, image) {

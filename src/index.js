@@ -1,5 +1,3 @@
-import loadHome from "./initialLoad";
+import initialLoad from "./initialLoad";
 
-console.log("Index.js test");
-
-loadHome();
+initialLoad();
