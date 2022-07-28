@@ -35,8 +35,13 @@ function createButton(id, text) {
 function createBodyContent() {
   const bodyContent = document.createElement("bodyContent");
   bodyContent.id = "bodyContent";
+  bodyContent.classList = "bodyContent";
 
-  //Cover
+  const homeContainer = document.createElement("homeContainer");
+  homeContainer.classList = "homeContainer";
+  bodyContent.appendChild(homeContainer);
+
+  //Cover + logo
   const cover = document.createElement("cover");
   cover.classList = "cover";
   const logo = document.createElement("logo");
@@ -46,25 +51,16 @@ function createBodyContent() {
 
   cover.appendChild(logo);
   cover.appendChild(h1);
-  bodyContent.appendChild(cover);
+  homeContainer.appendChild(cover);
 
   //Text Content
   const textContent = document.createElement("textContent");
   textContent.classList = "textContent";
-  const reviewImageLeft = document.createElement("reviewImage");
-
-  ////ReviewImage Left
-
-  const concernedImage = createReviewImages("concerned", "images/gordon.jpg");
-  const sonicImage = createReviewImages("Sonic", "images/sonic.jpg");
-
-  reviewImageLeft.appendChild(concernedImage);
-  reviewImageLeft.appendChild(sonicImage);
-  reviewImageLeft.classList = "reviewImageLeft";
-  textContent.appendChild(reviewImageLeft);
+  homeContainer.appendChild(textContent);
 
   ////Review
   const review = document.createElement("review");
+  review.classList = "review";
   const h2 = document.createElement("h2");
   h2.textContent = "Welcome to A Delicious Restaurant";
   const reviewText = document.createElement("p");
@@ -79,26 +75,21 @@ function createBodyContent() {
   review.appendChild(reviewText2);
   textContent.appendChild(review);
 
-  //ReviewImage Right
-
-  const reviewImageRight = document.createElement("reviewImage");
-  reviewImageRight.classList = "reviewImageRight";
+  //Image Cycling
+  const imageContainer = document.createElement("imageContainer");
+  imageContainer.classList = "imageContainer";
   const crocs = createReviewImages("Crocs", "images/crocks.jpg");
-  const concernedFlip = createReviewImages(
-    "reverseGordon",
-    "images/gordon.jpg"
-  );
+  imageContainer.appendChild(crocs);
+  // const sonicImage = createReviewImages("Sonic", "images/sonic.jpg");
+  // imageContainer.appendChild(sonicImage);
+  textContent.appendChild(imageContainer);
 
-  reviewImageRight.appendChild(crocs);
-  reviewImageRight.appendChild(concernedFlip);
-  textContent.appendChild(reviewImageRight);
-  bodyContent.appendChild(textContent);
   return bodyContent;
 }
 
 function createReviewImages(id, src) {
   const image = document.createElement("img");
-  image.classList = id;
+  image.classList = "img";
   image.id = id;
   image.src = src;
   return image;
@@ -112,3 +103,28 @@ function loadHome() {
 }
 
 export default loadHome;
+
+// ////ReviewImage Left
+// const reviewImageLeft = document.createElement("reviewImage");
+
+// const concernedImage = createReviewImages("concerned", "images/gordon.jpg");
+// const sonicImage = createReviewImages("Sonic", "images/sonic.jpg");
+
+// reviewImageLeft.appendChild(concernedImage);
+// reviewImageLeft.appendChild(sonicImage);
+// reviewImageLeft.classList = "reviewImageLeft";
+// textContent.appendChild(reviewImageLeft);
+
+// //ReviewImage Right
+
+// const reviewImageRight = document.createElement("reviewImage");
+// reviewImageRight.classList = "reviewImageRight";
+// const crocs = createReviewImages("Crocs", "images/crocks.jpg");
+// const concernedFlip = createReviewImages(
+//   "reverseGordon",
+//   "images/gordon.jpg"
+// );
+
+// reviewImageRight.appendChild(crocs);
+// reviewImageRight.appendChild(concernedFlip);
+// textContent.appendChild(reviewImageRight);

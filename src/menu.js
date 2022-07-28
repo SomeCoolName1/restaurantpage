@@ -14,13 +14,6 @@ function createMenu() {
   menuContainer.classList = "menuContainer";
   menuBackground.appendChild(menuContainer);
 
-  const menuTitle = menuDescription(
-    "Name",
-    "",
-    "Price",
-    "images/transparent.png"
-  );
-
   //name, text, price, image
   const foodRice = menuDescription(
     "Single Grain of Rice",
@@ -50,7 +43,6 @@ function createMenu() {
     "images/brownies.jpeg"
   );
 
-  menuContainer.appendChild(menuTitle);
   menuContainer.appendChild(foodRice);
   menuContainer.appendChild(foodEgg);
   menuContainer.appendChild(foodCurry);
@@ -63,25 +55,29 @@ function menuDescription(name, text, price, image) {
   const menuBlock = document.createElement("menuBlock");
   menuBlock.classList = "menuBlock";
 
-  const foodDescription = document.createElement("foodDescription");
-  menuBlock.appendChild(foodDescription);
-
-  const foodName = document.createElement("h2");
-  foodName.textContent = name;
-  foodDescription.appendChild(foodName);
-
-  const foodText = document.createElement("p");
-  foodText.textContent = text;
-  foodDescription.appendChild(foodText);
-
-  const foodPrice = document.createElement("p");
-  foodPrice.textContent = price;
-  menuBlock.appendChild(foodPrice);
-
   const foodImage = document.createElement("img");
   foodImage.classList = name;
   foodImage.src = image;
   menuBlock.appendChild(foodImage);
+
+  const foodHeader = document.createElement("foodHeader");
+  foodHeader.classList = "foodHeader";
+  menuBlock.appendChild(foodHeader);
+
+  const foodDescription = document.createElement("foodDescription");
+  menuBlock.appendChild(foodDescription);
+
+  const foodName = document.createElement("h3");
+  foodName.textContent = name;
+  foodHeader.appendChild(foodName);
+
+  const foodPrice = document.createElement("h3");
+  foodPrice.textContent = price;
+  foodHeader.appendChild(foodPrice);
+
+  const foodText = document.createElement("p");
+  foodText.textContent = text;
+  foodDescription.appendChild(foodText);
 
   return menuBlock;
 }
