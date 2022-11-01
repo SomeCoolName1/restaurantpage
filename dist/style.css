@@ -17,7 +17,7 @@ body {
 .header {
   text-orientation: upright;
   transform: rotate(-90deg);
-  position: fixed;
+  position: absolute;
   right: 0;
   transform-origin: 100% 100%;
   margin: 0;
@@ -106,6 +106,7 @@ body {
   justify-content: center;
   color: var(--textColor);
   flex-direction: column;
+  text-align: center;
 }
 
 .textContent {
@@ -135,6 +136,33 @@ body {
   min-height: 100%;
 }
 
+@media screen and (max-width: 1200px) {
+  .textContent {
+    grid-template-rows: 2fr 1fr;
+  }
+  .foodHeader {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    text-orientation: upright;
+    transform: none;
+    position: static;
+    display: flex;
+    justify-content: center;
+  }
+
+  .imageContainer {
+    display: none;
+  }
+  .textContent {
+    grid-template-rows: 1fr;
+  }
+}
+
 /* ---------------------------Menu-------------------------------------*/
 .outerContainer {
   display: flex;
@@ -151,7 +179,7 @@ body {
     url("images/menuWallpaper.jpg") no-repeat;
   background-size: cover;
   background-attachment: absolute;
-  background-position-y: -350px;
+  background-position-y: center;
   width: 97%;
   padding: 1rem;
   justify-content: center;

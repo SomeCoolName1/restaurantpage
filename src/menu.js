@@ -76,11 +76,11 @@ function menuDescription(name, text, price, image) {
   const foodDescription = document.createElement("foodDescription");
   menuBlock.appendChild(foodDescription);
 
-  const foodName = document.createElement("h3");
+  const foodName = document.createElement("h5");
   foodName.textContent = name;
   foodHeader.appendChild(foodName);
 
-  const foodPrice = document.createElement("h3");
+  const foodPrice = document.createElement("h5");
   foodPrice.textContent = price;
   foodHeader.appendChild(foodPrice);
 
